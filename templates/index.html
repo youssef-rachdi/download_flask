@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Video Downloader</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+        <h1>YouTube Video Downloader</h1>
+        <form action="/" method="post">
+            <label for="video_url">YouTube Video URL:</label>
+            <input type="text" placeholder="YouTube Video URL:" id="video_url" name="video_url" required>
+            <button type="submit">Download</button>
+        </form>
+    </div>
+    <div id="download_link" class="card success" style="display: none;">
+        <a>Video Downloaded successfully</a>
+        <h4 id="wait" style="margin-top: 30px;display: none;background-color: rgb(135, 135, 238);width: 100px;height: 50px;">wait for this Line</h4>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get a reference to the download_link div
+            var downloadLink = document.getElementById("download_link");
+            
+            // Use a setTimeout to show the div after 2 seconds
+            setTimeout(function () {
+                downloadLink.style.display = "block";
+            }, 2000); // 2000 milliseconds = 2 seconds
+
+            // Use another setTimeout to hide the div after it has been shown
+            setTimeout(function () {
+                downloadLink.style.display = "none";
+            }, 4000); // 4000 milliseconds = 4 seconds (2 seconds after showing)
+        });
+
+    </script>
+</body>
+
+</html>
